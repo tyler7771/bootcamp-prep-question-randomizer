@@ -24094,6 +24094,10 @@
 	
 	var _header2 = _interopRequireDefault(_header);
 	
+	var _footer = __webpack_require__(235);
+	
+	var _footer2 = _interopRequireDefault(_footer);
+	
 	var _page = __webpack_require__(219);
 	
 	var _page2 = _interopRequireDefault(_page);
@@ -24122,7 +24126,8 @@
 	        'main',
 	        null,
 	        _react2.default.createElement(_header2.default, null),
-	        _react2.default.createElement(_page2.default, null)
+	        _react2.default.createElement(_page2.default, null),
+	        _react2.default.createElement(_footer2.default, null)
 	      );
 	    }
 	  }]);
@@ -36265,6 +36270,79 @@
 	return jQuery;
 	} );
 
+
+/***/ }),
+/* 235 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Header = function Header() {
+	  return _react2.default.createElement(
+	    "footer",
+	    null,
+	    _react2.default.createElement(
+	      "div",
+	      { className: "footer-wrapper" },
+	      _react2.default.createElement(
+	        "h2",
+	        { className: "footer-heading" },
+	        _react2.default.createElement(
+	          "a",
+	          { href: "http://www.appacademy.io/#p-home" },
+	          "Learn about App Academy"
+	        )
+	      ),
+	      _react2.default.createElement(
+	        "div",
+	        { className: "footer-col-wrapper" },
+	        _react2.default.createElement(
+	          "div",
+	          { className: "footer-col  footer-col-1" },
+	          _react2.default.createElement(
+	            "p",
+	            { className: "text" },
+	            "Please contact us with any questions or concerns:"
+	          ),
+	          _react2.default.createElement(
+	            "ul",
+	            { className: "contact-list" },
+	            _react2.default.createElement(
+	              "li",
+	              null,
+	              _react2.default.createElement(
+	                "a",
+	                { href: "mailto:contact@appacademy.io" },
+	                "contact@appacademy.io"
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "footer-col  footer-col-3" },
+	          _react2.default.createElement(
+	            "p",
+	            { className: "text" },
+	            "Use these resources to prepare for App Academy"
+	          )
+	        )
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = Header;
 
 /***/ })
 /******/ ]);

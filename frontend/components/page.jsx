@@ -16,7 +16,7 @@ const week2 = [
   'HQ9Y/2', 'HQcJ/2', 'LFE7/0', 'LFEc/0', 'LFEo/0', 'LFEs/0', 'HA45/0',
   'HA4c/0', 'HA4f/0', 'HA4i/0'
 ];
-const week3 = [];
+const week3 = ['HB1i/0'];
 const week4 = [];
 const all = week1.concat(week2).concat(week3).concat(week4);
 

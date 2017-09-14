@@ -16,8 +16,18 @@ const week2 = [
   'HQ9Y/2', 'HQcJ/2', 'LFE7/0', 'LFEc/0', 'LFEo/0', 'LFEs/0', 'HA45/0',
   'HA4c/0', 'HA4f/0', 'HA4i/0'
 ];
-const week3 = ['HB1i/0'];
-const week4 = [];
+const week3 = [
+  'HB1i/0', 'LHLP/0', 'LHL1/0', 'LHLc/0', 'LHLl/0', 'LHLv/0', 'LHMi/0',
+  'LHMo/0', 'LHMw/0', 'HB1k/0', 'HB1p/0', 'HB1x/0', 'HB2B/3', 'HB2G/0',
+  'HSes/4', 'I9M2/2', 'IenL/2', 'LHNr/0', 'LHOD/0', 'LHOS/0', 'LHOZ/0',
+  'LHOj/0', 'LHOs/0', 'LHPw/0', 'LHQC/0', 'LHQN/0', 'LHQZ/0'
+];
+const week4 = [
+  'HYEQ/2', 'LHQl/0', 'HYFQ/5', 'HYGq/2', 'LHQx/0', 'LHRF/0', 'LHRL/0',
+  'H0K2/1', 'HYI6/8', 'LHRX/0', 'LHRa/0', 'LHRt/0', 'LHSC/0', 'LHSO/0',
+  'LHSX/0', 'H0Mi/2', 'H0OU/3', 'H0Pu/1', 'LHSu/0', 'LHTD/0', 'H26g/2',
+  'H28B/5', 'LHTW/0', 'H2aw/3', 'H5D2/4', 'H5EQ/4', 'I7Kp/2'
+];
 const all = week1.concat(week2).concat(week3).concat(week4);
 
 class Page extends React.Component {

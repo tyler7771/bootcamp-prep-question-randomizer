@@ -1,6 +1,7 @@
 import React from 'react';
+import $ from 'jquery';
 
-class CheckInModal extends React.Component {
+class Modal extends React.Component {
   render () {
     return (
       <div className="modal-container">
@@ -12,7 +13,7 @@ class CheckInModal extends React.Component {
           className="repl"
           width="100%"
           height="100%"
-          frameborder="0"
+          frameBorder="0"
           src={`https://repl.it/${this.props.url}?lite=true`}>
         </iframe>
       </div>
@@ -20,4 +21,4 @@ class CheckInModal extends React.Component {
   }
 }
 
-export default CheckInModal;
+export default Modal;

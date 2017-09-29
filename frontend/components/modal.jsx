@@ -5,7 +5,7 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { sec: 0, min: 14, hour: 0, class: 'timer-under', paused: false};
+    this.state = { sec: 0, min: 0, hour: 0, class: 'timer-under', paused: false};
 
     this.handleButton = this.handleButton.bind(this);
   }

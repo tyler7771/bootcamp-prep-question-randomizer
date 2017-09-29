@@ -58,11 +58,20 @@ class Page extends React.Component {
 
   closeModal() {
     this.setState({ modalOpen: false });
+    this.stopTimeout();
   }
 
   generateUrl(arr) {
     this.setState({url: arr[Math.floor(Math.random() * arr.length)]});
     this.openModal();
+  }
+
+  stopTimeout() {
+    let id = window.setTimeout(function() {}, 0);
+
+    while (id--) {
+      window.clearTimeout(id);
+    }
   }
 
   render () {
@@ -99,7 +108,9 @@ class Page extends React.Component {
           >
 
           <ModalContainer url={this.state.url}
-            closeModal={this.closeModal}/>
+            closeModal={this.closeModal}
+            stopTimeout={this.stopTimeout}
+          />
         </Modal>
       </div>
     );

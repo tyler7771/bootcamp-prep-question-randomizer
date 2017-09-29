@@ -24312,12 +24312,22 @@
 	    key: 'closeModal',
 	    value: function closeModal() {
 	      this.setState({ modalOpen: false });
+	      this.stopTimeout();
 	    }
 	  }, {
 	    key: 'generateUrl',
 	    value: function generateUrl(arr) {
 	      this.setState({ url: arr[Math.floor(Math.random() * arr.length)] });
 	      this.openModal();
+	    }
+	  }, {
+	    key: 'stopTimeout',
+	    value: function stopTimeout() {
+	      var id = window.setTimeout(function () {}, 0);
+	
+	      while (id--) {
+	        window.clearTimeout(id);
+	      }
 	    }
 	  }, {
 	    key: 'render',
@@ -24392,7 +24402,9 @@
 	            contentLabel: 'Modal'
 	          },
 	          _react2.default.createElement(_modal2.default, { url: this.state.url,
-	            closeModal: this.closeModal })
+	            closeModal: this.closeModal,
+	            stopTimeout: this.stopTimeout
+	          })
 	        )
 	      );
 	    }
@@ -26056,16 +26068,75 @@
 	var Modal = function (_React$Component) {
 	  _inherits(Modal, _React$Component);
 	
-	  function Modal() {
+	  function Modal(props) {
 	    _classCallCheck(this, Modal);
 	
-	    return _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).call(this, props));
+	
+	    _this.state = { sec: 0, min: 14, hour: 0, class: 'timer-under', paused: false };
+	
+	    _this.handleButton = _this.handleButton.bind(_this);
+	    return _this;
 	  }
 	
 	  _createClass(Modal, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+	
+	      setTimeout(function () {
+	        return _this2.incrementTime();
+	      }, 5000);
+	    }
+	  }, {
+	    key: 'incrementTime',
+	    value: function incrementTime() {
+	      var _this3 = this;
+	
+	      var newSec = this.state.sec + 1;
+	
+	      if (newSec === 60) {
+	        var newMin = this.state.min + 1;
+	
+	        if (newMin === 60) {
+	          var newHour = this.state.hour + 1;
+	          this.setState({ min: 0, hour: newHour, sec: 0 });
+	        } else if (newMin === 15) {
+	          this.setState({ class: 'timer-over', min: newMin, sec: 0 });
+	        } else {
+	          this.setState({ min: newMin, sec: 0 });
+	        }
+	      } else {
+	        this.setState({ sec: newSec });
+	      }
+	
+	      setTimeout(function () {
+	        return _this3.incrementTime();
+	      }, 1000);
+	    }
+	  }, {
+	    key: 'handleButton',
+	    value: function handleButton() {
+	      if (this.state.paused) {
+	        this.setState({ paused: false });
+	        this.incrementTime();
+	      } else {
+	        this.setState({ paused: true });
+	        this.props.stopTimeout();
+	      }
+	    }
+	  }, {
+	    key: 'addZero',
+	    value: function addZero(num) {
+	      if (num < 10) {
+	        return '0' + num;
+	      }
+	      return num;
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
+	      var _this4 = this;
 	
 	      return _react2.default.createElement(
 	        'div',
@@ -26074,9 +26145,27 @@
 	          'div',
 	          { className: 'modal-close',
 	            onClick: function onClick() {
-	              return _this2.props.closeModal();
+	              return _this4.props.closeModal();
 	            } },
 	          'X'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'timer-wrapper' },
+	          _react2.default.createElement(
+	            'p',
+	            { className: this.state.class },
+	            this.addZero(this.state.hour),
+	            ':',
+	            this.addZero(this.state.min),
+	            ':',
+	            this.addZero(this.state.sec)
+	          ),
+	          _react2.default.createElement(
+	            'a',
+	            { className: 'pause-button', onClick: this.handleButton },
+	            this.state.paused ? 'Start' : 'Pause'
+	          )
 	        ),
 	        _react2.default.createElement('iframe', {
 	          className: 'repl',

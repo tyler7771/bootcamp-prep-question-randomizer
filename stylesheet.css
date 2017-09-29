@@ -188,3 +188,37 @@ p {
 .ReactModal__Content:focus, .ReactModal__Content--after-open:focus, .modal:focus {
   outline: none;
 }
+
+.timer-wrapper {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.timer-over, .timer-under {
+  font-size: 30px;
+  margin: 0;
+}
+
+.timer-over {
+  color: #FF0000;
+}
+
+.pause-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #FF0000;
+  border-radius: 10px;
+  font-size: 17px;
+  margin: 0 10px;
+  padding: 2px 7px;
+}
+
+.pause-button:hover {
+  background: #FF0000;
+  color: white;
+  cursor: pointer;
+}

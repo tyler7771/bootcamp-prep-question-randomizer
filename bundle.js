@@ -26073,7 +26073,7 @@
 	
 	    var _this = _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).call(this, props));
 	
-	    _this.state = { sec: 0, min: 14, hour: 0, class: 'timer-under', paused: false };
+	    _this.state = { sec: 0, min: 0, hour: 0, class: 'timer-under', paused: false };
 	
 	    _this.handleButton = _this.handleButton.bind(_this);
 	    return _this;
